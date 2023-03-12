@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Modal from '../common/Modal';
-import { Button, DialogActions, DialogContent, TextField, Typography, Grid } from '@mui/material';
+import { Button, DialogActions, DialogContent, TextField, Typography } from '@mui/material';
 import { useAppDispatch } from '../../hooks';
 import { createNewUser } from '../../store/userSlice';
 import { useState } from 'react';

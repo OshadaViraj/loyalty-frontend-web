@@ -21,12 +21,10 @@ import { TUser } from "../../store/user.type";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { selectUser, fetchUsers } from "../../store/userSlice";
 import PointModal from "../../components/user/PointModal";
-import PreviewIcon from '@mui/icons-material/Preview';
 
 export function HomePage() {
   const [openAddUser, setOpenAddUser] = useState<boolean>(false);
   const [openEditUser, setOpenEditUser] = useState<boolean>(false);
-  const [openViewUser, setOpenViewUser] = useState<boolean>(false);
   const [openUpdatePoints, setOpenUpdatePoints] = useState<{
     type: "add" | "redeem";
     state: boolean;
@@ -59,15 +57,6 @@ export function HomePage() {
     setOpenUpdatePoints({ type: type, state: true });
   };
 
-  const openViewUserModal = (user: TUser) => {
-    setSelectedUser(user);
-    setOpenViewUser(true);
-  };
-
-  const closeViewUserModal = () => {
-    setSelectedUser(null);
-    setOpenViewUser(false);
-  };
 
   return (
     <div className={styles.frame}>
@@ -114,16 +103,6 @@ export function HomePage() {
                           color="secondary"
                         >
                           <Edit />
-                        </IconButton>
-                        <IconButton
-                          size="small"
-                          onClick={() => {
-                            openViewUserModal(user);
-                          }}
-                          aria-label="viewUser"
-                          color="secondary"
-                        >
-                          <PreviewIcon />
                         </IconButton>
                       </div>
                       <span className={styles.loyalty}>
